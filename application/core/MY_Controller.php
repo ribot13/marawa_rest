@@ -13,17 +13,16 @@
  */
 class MY_Controller extends CI_Controller {
 
-    public $require_login = true;
+    public $require_login = false;
 
     public function __construct() {
         parent::__construct();
     }
 
     protected function login_check($user = null, $pass = null) {
-        $this->load->model('auth/Login_model', 'lm');
         $user = is_null($user) ? $_SERVER['PHP_AUTH_USER'] : $user;
         $pass = is_null($pass) ? $_SERVER['PHP_AUTH_PW'] : $pass;
-        $this->lm->login_check($user, $pass);
+        $this->dlm->login_check($user, $pass);
     }
 
     public function render_json($data) {

@@ -21,7 +21,10 @@ class Login_model extends MY_Model {
     }
 
     public function login_check($user, $pass) {
-        if ($row = $this->db->where('username', $user)->get($this->tbl)) {
+        
+        if ($q = $this->db->where('username', $user)->get($this->tbl)) {
+            $row=$q->row();
+            
             if (password_verify($pass, $row->password)){
                 $data['last_login']=date('Y-m-d H:i:s');
                 return true;
