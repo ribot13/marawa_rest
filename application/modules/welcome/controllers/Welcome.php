@@ -19,9 +19,8 @@ class Welcome extends MY_Controller {
     }
 
     public function index() {
-        $this->load->model('auth/Login_model', 'lm');
         echo '<h1>Hello</h1>';
-        echo $this->lm->_hashMe("kanjuds123");
+        echo $this->dlm->_hashMe("kanjuds123");
     }
 
 }
